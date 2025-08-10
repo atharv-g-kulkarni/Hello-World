@@ -1,5 +1,5 @@
-# Step 1: Build the nuxt app
-FROM node:20
+# Step 1: Build the react app
+FROM registry.redhat.io/ubi9/nodejs-20-minimal
 
 # Set working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install && npm cache clean --force
+RUN npm install
 
 # Copy the entire app into the container
 COPY . .
